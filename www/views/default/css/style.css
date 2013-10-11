@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    max-width: 1200px;
+    min-width: 900px;
+    margin: 0 auto;
+}
+.sub_cat {
+  margin: 5px 0;
+}
+
+.menuCaption {
+    margin-bottom: 5px;
+}
+.last p {
+    font-weight: bold;
+}
+
+.centerColumn .last {
+    float: right;
+}
+
+.centerColumn .last div {
+    width: 100%;
+}
+
+.arrow {}
+
+.pegenation a, .carent , span{
+    margin: 0 5px;
+}
+.clear {
+    clear: both;
+}
+
+div.pegenation {
+    width: 300px;
+    margin: 15px auto 5px;
+    text-align: center;
+}
+#wrapper {
+     width: 960px;
+    padding: 20px;
+    margin: 10px auto;
+}
+
+#header {
+    width: 30%;
+    margin: 0 auto 10px;
+    text-align: center;
+    border: 1px solid black;
+}
+
+.leftColumn {
+    width: 23%;
+    margin-right: 1%;
+    float: left;
+    border: 1px solid black;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.products div {
+float: left;
+width: 25%; text-align: center;
+}
+.centerColumn {
+    width: 70%;
+    float: right;
+      border: 1px solid black;
+      padding: 10px;
+}
+ 
+.centerColumn h2 {
+    margin-bottom: 15px;
+}
+
+   #footer {
+     border: 1px solid black;
+     margin-top: 10px;
+     width: 100%;
+     margin-right: 300px;
+     
+   }
+   
+   
+  .leftColumn p, a {
+       margin: 5px 0 5px 0px;
+}
