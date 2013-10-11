@@ -1,16 +1,62 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: Arial;
+}
+a {
+    color: crimson;
+    text-decoration: none;
 }
 
+a:hover {
+    text-decoration: underline;
+}
 body {
     max-width: 1200px;
     min-width: 900px;
     margin: 0 auto;
 }
-.sub_cat {
-  margin: 5px 0;
+
+.leftColumn li {
+    list-style-type: none;
+    padding: 5px 0;
+    position:relative;
+    display:block;
+    height: 20px;
+    vertical-align: middle;
+    border: 1px solid black;
 }
+
+li a {
+    display: block;
+    height: 100%;
+
+
+}
+
+li ul a {
+    display: inline;
+}
+
+li ul {
+    display: none;
+    position: absolute;
+    text-wrap: none;
+    width: 250px;
+    left: 203px;
+    top:-1px;
+    z-index: 999;
+   
+    color: white;
+    background-color:greenyellow ;
+
+}
+
+
+li:hover ul {
+    display: block;
+}
+
 
 .menuCaption {
     margin-bottom: 5px;
@@ -31,6 +77,12 @@ body {
 
 .pegenation a, .carent , span{
     margin: 0 5px;
+
+}
+li .carent {
+    color:black;
+    margin: 0;
+    
 }
 .clear {
     clear: both;
@@ -42,7 +94,7 @@ div.pegenation {
     text-align: center;
 }
 #wrapper {
-     width: 960px;
+    width: 960px;
     padding: 20px;
     margin: 10px auto;
 }
@@ -55,38 +107,36 @@ div.pegenation {
 }
 
 .leftColumn {
-    width: 23%;
+    width: 205px;
     margin-right: 1%;
     float: left;
     border: 1px solid black;
     padding: 10px;
     box-sizing: border-box;
+    position: relative;
 }
 
 .products div {
-float: left;
-width: 25%; text-align: center;
+    float: left;
+    width: 25%; text-align: center;
 }
 .centerColumn {
     width: 70%;
     float: right;
-      border: 1px solid black;
-      padding: 10px;
+    border: 1px solid black;
+    padding: 10px;
 }
- 
+
 .centerColumn h2 {
     margin-bottom: 15px;
 }
 
-   #footer {
-     border: 1px solid black;
-     margin-top: 10px;
-     width: 100%;
-     margin-right: 300px;
-     
-   }
-   
-   
-  .leftColumn p, a {
-       margin: 5px 0 5px 0px;
+#footer {
+    border: 1px solid black;
+    margin-top: 10px;
+    width: 100%;
+    margin-right: 300px;
+
 }
+
+
