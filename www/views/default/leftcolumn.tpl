@@ -22,7 +22,7 @@
                     {elseif  $itemChild['id'] == $rsProduct['category_id']}
                         <li>{$itemChild['name']}</li>
                       {else}
-                      <li> <a href="/category/{$itemChild['id']}/">{$itemChild['name']}</a></li>
+                      <li> <a href="/category/{$itemChild['id']}/">{$itemChild['name']}</a> </li>
                       
                      {/if}
                      
