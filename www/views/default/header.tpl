@@ -2,16 +2,11 @@
     <head>
         <title>{$pageTitle}</title>
         <link rel="stylesheet" href="{$templateWebPath}css/style.css" />
-        <script type="text/javascript" src="{$templateWebPath}js/jquery-1.7.2.js"></script>
-        <script type="text/javascript" src="{$templateWebPath}js/main.js"></script>
+        <script type='text/javascript' src="{$templateWebPath}js/jquery-1.7.2.js"></script>
+        <script type='text/javascript' src="{$templateWebPath}js/main.js"></script>
         {literal}
             <script type="text/javascript">
-   $(document).ready( function() {        
-    $('.cart_button').click(function() {
 
-               return false;
-                });
-}); 
             </script>
         {/literal}
     </head>
@@ -56,7 +51,11 @@
                                         {/foreach}
                                         → <a href="/category/{$rsOneCategory['id']}/" style="margin-left: 5px;">{$rsOneCategory['name']}</a>  →   <span style="margin-left: 5px;">{$rsProduct['name']}</span>
 
-                                    {/if}   
+                                    {/if}  
+                                    
+                                    {if $controllerNamew === 'Сart'}
+                                        <a href="/"style="margin-right: 5px;">На  главную</a> →   <span style="margin-left: 5px;">Корзина</span>
+                                        {/if}
                                 </div>
 
                                 <!-- 

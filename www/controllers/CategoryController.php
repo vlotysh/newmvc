@@ -81,19 +81,15 @@ function indexAction($smarty) {
     $smarty->assign('count', $count);
 
 
-
     $smarty->assign('pages', $pages);
     $smarty->assign('query', $query);
-
     $smarty->assign('rsCategory', $rsCategory);
     $smarty->assign('rsOneCategory', $rsOneCategory);
     $smarty->assign('rsProducts', $rsProducts);
     $smarty->assign('rsChildCats', $rsChildCats);
-
     $smarty->assign('rsCategories', $rsCategories);
     $smarty->assign('page', $page);
 
-    loadTemplate($smarty, 'header');
-    loadTemplate($smarty, 'category');
-    loadTemplate($smarty, 'footer');
+    layOut($smarty, 'category');
+   
 }

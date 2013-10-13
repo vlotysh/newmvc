@@ -81,7 +81,7 @@ function createSmartyRsArray($rs) {
  * @param type $controllerName имя контроллера
  * @param type $actionName метод контроллера
  */
-function loadPage($smarty, $controllerName, $actionName = 'index', $page = NULL) {
+function loadPage($smarty, $controllerName, $actionName = 'index') {
     include_once (PathPrefix . $controllerName . PathPostfix);
 
     $function = $actionName . 'Action';
@@ -102,6 +102,20 @@ function loadTemplate($smarty, $templayteName) {
     $smarty->display($templayteName . TemplatePostfix);
 }
 
+/**
+ * Используется для загрузки нескольких шалонов сразу
+ * @smarty первым парметром передается смарти объект
+ * @templayteName втрой имя шаблона котороый нужно поставить
+ * (к примеру, 'product', 'category','cart') 
+ * 
+ * @param type $smarty
+ * @param type $templayteName
+ */
+function layOut($smarty, $templayteName){
+     loadTemplate($smarty, 'header');
+    loadTemplate($smarty, $templayteName);
+    loadTemplate($smarty, 'footer');
+}
 
 
 

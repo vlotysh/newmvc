@@ -3,6 +3,14 @@
     padding: 0;
     font-family: Arial;
 }
+
+table td {
+    padding: 5px;
+}
+.hideme {
+    display: none;
+}
+
 a {
     color: crimson;
     text-decoration: none;

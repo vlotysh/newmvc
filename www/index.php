@@ -8,7 +8,7 @@ if(! isset($_SESSION['cart'])) {
 //unset( $_SESSION['cart'] );
 
 //Подключение файлов с функциями и конфигурациям
-include_once 'config/config.php'; //Инициализация настроек
+include_once 'config/config.php'; //Инициализация настроек + инициализация шаблона
 include_once 'config/db.php';//Инициализация настроек базы данных
 include_once 'library/mainFunctions.php'; //Основные функции
 include_once 'helpers/additionFunctions.php'; //Хелперы
@@ -21,9 +21,10 @@ $controllerName = isset($_GET['controller']) ? ucfirst($_GET['controller']) : 'I
 $actionName = isset($_GET['action']) ? $_GET['action'] : 'index';
 
 
-//Количество товаров в 
+//Количество товаров в корзине
 $smarty->assign('cartCntItems', count($_SESSION['cart']));
 
+$smarty->assign('controllerName', $controllerName);
 
 $page = isset($_GET['page']) ? $_GET['page'] : NULL;
 

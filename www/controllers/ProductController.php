@@ -18,15 +18,17 @@ function indexAction($smarty) {
 
     $rsOneCategory = getCatById($rsProduct['category_id']); //выброка категории 
     //к которой пренадлежит товар
-
+    
+    if(in_array($itemId, $_SESSION['cart'])) {
+        $smarty->assign('ItemInCart', 1);
+    }
     
     $smarty->assign('pageTitle', $rsProduct['name']);
     $smarty->assign('rsOneCategory', $rsOneCategory);
     $smarty->assign('rsProduct', $rsProduct);
     $smarty->assign('rsCategories', $rsCategories);
+    
+    layOut($smarty,'product');
 
-
-    loadTemplate($smarty, 'header');
-    loadTemplate($smarty, 'product');
-    loadTemplate($smarty, 'footer');
+    
 }

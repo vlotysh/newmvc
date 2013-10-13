@@ -40,6 +40,7 @@
         </a><br />
             <a href="/product/{$item['id']}/">{$item['name']}</a><br />
             <span>Стоимость: {$item['price']} грн.</span>
+            
     </div>
           {if $smarty.foreach.products.iteration mod 4 == 0}
               <div style="clear: both;"></div>
