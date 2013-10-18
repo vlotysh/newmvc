@@ -61,8 +61,9 @@
                                 <!-- 
                                          хлебных крошки закончились =)
                                 -->  
-
+                                
                                 <div class="clear"></div>
+                               
                                 {include file='leftcolumn.tpl'}    
 
 
