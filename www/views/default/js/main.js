@@ -81,3 +81,71 @@ function conversionPrice(itemId) {
     
     $('#itemRealPrice_' + itemId).html(itemRealPrice);
 }
+
+/**
+ * Подсчет суммы к оплате
+ * 
+ * 
+ * @returns {undefined}
+ */
+
+function pricePrice () {
+      var sum = 0;
+        $("td.count ").each( function () {
+	            sum += parseInt( $(this).text(), 10 );
+        });
+	        alert(sum);
+}
+
+/**
+ * Cборка данных из формы
+ * 
+ * @param {type} obj_form
+ * @returns {unresolved}
+ */
+function getData(obj_form ) {
+    var hData = {};
+    
+    $('input, textarea, select').each(function (){
+        if(this.name && this.name!='') {
+            hData[this.name] = this.value;
+            console.log('hData['+this.name + ']=' + hData[this.name]);
+        }
+    
+        });
+       
+        return hData;
+}
+
+/**
+ * 
+ * Ajax регистрация нового прользователя
+ * 
+ * @returns {undefined}
+ */
+function registerNewUser() {
+    var postData = getData('#registerBox');
+    
+    $.ajax({
+        type: 'POST',
+        async: false,
+        url: "/user/register/",
+        data:postData,
+        dataType:'json',
+        success: function(data) {
+            if(data['success']) {
+            alert(data['message']);
+                   $('#registerBox').hide();  
+            } else {
+            alert(data['message']);
+            }
+                 
+        //блок в левом столбце
+      
+            
+        }
+        
+        
+    })
+            
+}

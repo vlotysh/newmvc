@@ -39,17 +39,21 @@
         <span id="cartCntItems">
             {if $cartCntItems > 0}{$cartCntItems}{else}пусто{/if}
         </span>
-        <div class="registerBox" onclick="showRegisterBox();">Регистрация</div>
+        <div id="registerBox" style="margin-top: 10px;">
+        <div class="menuCaprion showHidden" onclick="showRegisterBox();">Регистрация</div>
+        
+        
           <div id="registerBoxHidden">
               email:<br />
               <input type="text" id="email" name="email" value=""/><br />
               пароль: <br />
               <input type="password" id="pwd1" name="pwd1" value=""/><br />
               повторите пароль: <br />
-              <input type="password" id="pwd2" name="pwd1" value=""/><br />
+              <input type="password" id="pwd2" name="pwd2" value=""/><br />
+              <input type="button" onclick="registerNewUser()" value="Зарегестрироваться" />
           </div>
                                 
-         
+        </div>
         
         
     </div>
