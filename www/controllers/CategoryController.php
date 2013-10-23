@@ -89,7 +89,9 @@ function indexAction($smarty) {
     $smarty->assign('rsChildCats', $rsChildCats);
     $smarty->assign('rsCategories', $rsCategories);
     $smarty->assign('page', $page);
-
+    
+  
     layOut($smarty, 'category');
-   
+     $redirect = 'http://newmvc.git'.$_SERVER['REQUEST_URI'];
+
 }
