@@ -50,8 +50,8 @@ function indexAction($smarty) {
     
     
 
-    if ($_GET['q']) {
-        $query = $_GET['q'];
+    if ($_SESSION['query'] ) {
+        $query = $_SESSION['query'];
     } else {
         $query = 'price ASC';
     }
@@ -70,7 +70,7 @@ function indexAction($smarty) {
 
     $count = getCount($catId);
 
-    $pages = pagination($count, $perPage, $num_links, $start_row, $catId, $q);
+    $pages = pagination($count, $perPage, $num_links, $start_row, $catId);
 
 
     $rsOneCategory = getCatById($catId); //выброка категории 

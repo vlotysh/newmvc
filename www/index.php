@@ -7,6 +7,13 @@ if(! isset($_SESSION['cart'])) {
 } 
 //unset( $_SESSION['cart'] );
 
+
+$_SESSION['query'];
+
+if($_POST['q']) {
+    $_SESSION['query'] = $_POST['q'];
+}
+
 //Подключение файлов с функциями и конфигурациям
 include_once 'config/config.php'; //Инициализация настроек + инициализация шаблона
 include_once 'config/db.php';//Инициализация настроек базы данных

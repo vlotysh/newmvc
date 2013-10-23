@@ -1,7 +1,7 @@
 {* cтраница категорий*}
 
 {if $rsOneCategory['parent_id'] != 0 && count($rsProducts) != 0}
-<form action="" method="GET">
+<form action="" method="POST">
     
        
     <INPUT type="radio" NAME="q" value="price ASC" {if $query == 'price ASC'}  checked=""{/if}><span>По возрастанию цены</span>

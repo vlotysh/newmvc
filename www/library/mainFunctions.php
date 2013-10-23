@@ -131,7 +131,7 @@ function layOut($smarty, $templayteName){
  * стрелочки вперед и 
  * @return string строчка с постраничной навигацией
  */
-function pagination($total, $per_page, $num_links, $start_row, $id, $q){
+function pagination($total, $per_page, $num_links, $start_row, $id){
    
     
 
@@ -163,7 +163,7 @@ function pagination($total, $per_page, $num_links, $start_row, $id, $q){
     if  ($cur_page != 1){
         $i = $start_row - $per_page;
         if ($i <= 0) $i = '' ;
-        $output .= '<i>←</i><a href="/category/'.$id.'/'.$i.$q.'">Предыдущая</a>';
+        $output .= '<i>←</i><a href="/category/'.$id.'/'.$i.'">Предыдущая</a>';
     }
     else{
         $output .='<span><i>←</i>Предыдущая</span>';
@@ -173,7 +173,7 @@ function pagination($total, $per_page, $num_links, $start_row, $id, $q){
 
     //Формируем ссылку на следующую страницу
     if ($cur_page < $num_pages){
-        $output .= '<a href="/category/'.$id.'/'.($cur_page * $per_page).$q.'">Следующая </a><i>→</i>';
+        $output .= '<a href="/category/'.$id.'/'.($cur_page * $per_page).'">Следующая </a><i>→</i>';
     }
     else{
         $output .='<span>Следующая<i>→</i></span>';
@@ -185,7 +185,7 @@ function pagination($total, $per_page, $num_links, $start_row, $id, $q){
     
      $output .= '<span class="num_links">';
     if  ($cur_page > ($num_links + 1)){
-        $output .= '<a href="/category/'.$id.'/'.$q.'" title="Первая">Первая</a>';
+        $output .= '<a href="/category/'.$id.'/'.'" title="Первая">Первая</a>';
     }
 
     // Формируем список страниц с учетом стартовой и последней страницы   >
@@ -206,7 +206,7 @@ function pagination($total, $per_page, $num_links, $start_row, $id, $q){
 
                $n = ($i == 0) ? '' : $i;
 
-               $output .= '<a href="/category/'.$id.'/'.$n.$q.'">'.$loop.'</a>';
+               $output .= '<a href="/category/'.$id.'/'.$n.'">'.$loop.'</a>';
             } 
         }
     }
@@ -214,7 +214,7 @@ function pagination($total, $per_page, $num_links, $start_row, $id, $q){
     //Формируем ссылку на последнюю страницу
     if (($cur_page + $num_links) < $num_pages){
         $i = (($num_pages * $per_page) - $per_page);
-        $output .= '<a href="/category/'.$id.'/'.$i.$q.'" title="Последняя ">Последняя</a>';
+        $output .= '<a href="/category/'.$id.'/'.$i.'" title="Последняя ">Последняя</a>';
     }
     $output .= '</span>';
     return $output;
