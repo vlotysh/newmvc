@@ -89,12 +89,14 @@ function conversionPrice(itemId) {
  * @returns {undefined}
  */
 
-function pricePrice () {
+function totalPrice() {
       var sum = 0;
-        $("td.count ").each( function () {
+        $("span.count ").each( function () {
 	            sum += parseInt( $(this).text(), 10 );
+                    
+                    
         });
-	        alert(sum);
+        $(".total").html(sum);
 }
 
 /**

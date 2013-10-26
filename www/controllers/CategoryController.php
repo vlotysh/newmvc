@@ -80,7 +80,7 @@ function indexAction($smarty) {
     $smarty->assign('pageTitle', 'Товары категории' . $rsCategory['name']);
     $smarty->assign('count', $count);
 
-
+     $smarty->assign('catId', $catId);
     $smarty->assign('pages', $pages);
     $smarty->assign('query', $query);
     $smarty->assign('rsCategory', $rsCategory);
@@ -90,8 +90,9 @@ function indexAction($smarty) {
     $smarty->assign('rsCategories', $rsCategories);
     $smarty->assign('page', $page);
     
-  
+
     layOut($smarty, 'category');
-     $redirect = 'http://newmvc.git'.$_SERVER['REQUEST_URI'];
+    
+    
 
 }

@@ -1,21 +1,21 @@
 {* cтраница категорий*}
 
 {if $rsOneCategory['parent_id'] != 0 && count($rsProducts) != 0}
-<form action="" method="POST">
-    
-       
+ 
+          <!--
+ 
     <INPUT type="radio" NAME="q" value="price ASC" {if $query == 'price ASC'}  checked=""{/if}><span>По возрастанию цены</span>
      <INPUT type="radio" name="q" value="price DESC"  {if $query == 'price DESC'}checked="" {/if}> <span>По убыванию цены</span>
-    <!--
-       <p><select name="per_page">
-    <option disabled>Выберите героя</option>
-    <option value="2" selected>2</option>
-    <option value="5">5</option>
-    <option value="10">10</option>
-  
-   </select></p>-->
-<input type="submit" value="Показать">
-</form>
+        </select></p>-->
+          <form method="POST">
+  <select onchange='this.form.submit();' name="q"  >
+      <option value="price DESC" {if $query == 'price DESC'}selected=""{/if}>По убыванию цены</option>
+    <option value="price ASC"  {if $query == 'price ASC'}selected=""{/if}>По возрастанию цены</option>
+      </select>
+    
+  </form>
+
+
     
 {/if}
 

@@ -39,5 +39,5 @@ $page = isset($_GET['page']) ? $_GET['page'] : NULL;
 
         
 loadPage($smarty, $controllerName, $actionName, $page);
-   
+
  

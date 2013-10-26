@@ -4,9 +4,12 @@
         <link rel="stylesheet" href="{$templateWebPath}css/style.css" />
         <script type='text/javascript' src="{$templateWebPath}js/jquery-1.7.2.js"></script>
         <script type='text/javascript' src="{$templateWebPath}js/main.js"></script>
-        {literal}
+        
+         {literal}
             <script type="text/javascript">
-
+    for(var i = 0; i == 1; i++)       
+    location = location.href;
+                
             </script>
         {/literal}
     </head>
