@@ -60,6 +60,49 @@ function registerAction() {
             $resData['message'] = 'Ошибка регистрации';
         }
     }
-   
+
+    echo json_encode($resData);
+}
+
+function logoutAction() {
+    if (isset($_SESSION['user'])) {
+        unset($_SESSION['user']);
+        unset($_SESSION['cart']);
+    }
+    //переадресация на главную страничку
+    redirect('/');
+}
+
+/**
+ * 
+ * AJAX функция для регистрации пользователей
+ * 
+ * @return json массив данных пользователя
+ * 
+ */
+function loginAction() {
+
+    //C опомьщую AJAX JS передаем сюда мыло и пароль
+    $email = isset($_REQUEST['email']) ? $_REQUEST['email'] : null;
+    $email = trim($email);
+
+    $pwd = isset($_REQUEST['pwd']) ? $_REQUEST['pwd'] : null;
+    $pwd = trim($pwd);
+
+    $userData = loginUser($email, $pwd);
+
+    if ($userData['success']) {
+        $userData = $userData[0];
+
+        $_SESSION['user'] = $userData;
+        $_SESSION['user']['displayName'] = $userData['name'] ? $userData['name'] : $userData['email'];
+
+        $resData = $_SESSION['user'];
+        $resData['success'] = 1;
+    } else {
+        $resData['success'] = 0;
+        $resData['message'] = 'Неверный логин или пароль';
+    }
+
     echo json_encode($resData);
 }

@@ -28,26 +28,23 @@ function d($value = null, $die = 1) {
  * @param type $string
  * @return type
  */
-function NormalizeStringToURL( $string )
-{
-	static $lang2tr = array(
-		// russian
-		'й'=>'j','ц'=>'c','у'=>'u','к'=>'k','е'=>'e','н'=>'n','г'=>'g','ш'=>'sh',
-		'щ'=>'sh','з'=>'z','х'=>'h','ъ'=>'','ф'=>'f','ы'=>'y','в'=>'v','а'=>'a',
-		'п'=>'p','р'=>'r','о'=>'o','л'=>'l','д'=>'d','ж'=>'zh','э'=>'e','я'=>'ja',
-		'ч'=>'ch','с'=>'s','м'=>'m','и'=>'i','т'=>'t','ь'=>'','б'=>'b','ю'=>'ju','ё'=>'e','и'=>'i',
+function NormalizeStringToURL($string) {
+    static $lang2tr = array(
+// russian
+'й' => 'j', 'ц' => 'c', 'у' => 'u', 'к' => 'k', 'е' => 'e', 'н' => 'n', 'г' => 'g', 'ш' => 'sh',
+ 'щ' => 'sh', 'з' => 'z', 'х' => 'h', 'ъ' => '', 'ф' => 'f', 'ы' => 'y', 'в' => 'v', 'а' => 'a',
+ 'п' => 'p', 'р' => 'r', 'о' => 'o', 'л' => 'l', 'д' => 'd', 'ж' => 'zh', 'э' => 'e', 'я' => 'ja',
+ 'ч' => 'ch', 'с' => 's', 'м' => 'm', 'и' => 'i', 'т' => 't', 'ь' => '', 'б' => 'b', 'ю' => 'ju', 'ё' => 'e', 'и' => 'i',
+ 'Й' => 'J', 'Ц' => 'C', 'У' => 'U', 'К' => 'K', 'Е' => 'E', 'Н' => 'N', 'Г' => 'G', 'Ш' => 'SH',
+ 'Щ' => 'SH', 'З' => 'Z', 'Х' => 'H', 'Ъ' => '', 'Ф' => 'F', 'Ы' => 'Y', 'В' => 'V', 'А' => 'A',
+ 'П' => 'P', 'Р' => 'R', 'О' => 'O', 'Л' => 'L', 'Д' => 'D', 'Ж' => 'ZH', 'Э' => 'E', 'Я' => 'JA',
+ 'Ч' => 'CH', 'С' => 'S', 'М' => 'M', 'И' => 'I', 'Т' => 'T', 'Ь' => '', 'Б' => 'B', 'Ю' => 'JU', 'Ё' => 'E', 'И' => 'I',
+ // special
+' ' => '-', '\'' => '', '"' => '', '\t' => '', '«' => '', '»' => '', '?' => '', '!' => '', '*' => ''
+    );
+    $url = preg_replace('/[\-]+/', '-', preg_replace('/[^\w\-\*]/', '', strtolower(strtr($string, $lang2tr))));
 
-		'Й'=>'J','Ц'=>'C','У'=>'U','К'=>'K','Е'=>'E','Н'=>'N','Г'=>'G','Ш'=>'SH',
-		'Щ'=>'SH','З'=>'Z','Х'=>'H','Ъ'=>'','Ф'=>'F','Ы'=>'Y','В'=>'V','А'=>'A',
-		'П'=>'P','Р'=>'R','О'=>'O','Л'=>'L','Д'=>'D','Ж'=>'ZH','Э'=>'E','Я'=>'JA',
-		'Ч'=>'CH','С'=>'S','М'=>'M','И'=>'I','Т'=>'T','Ь'=>'','Б'=>'B','Ю'=>'JU','Ё'=>'E','И'=>'I',
-
-		// special
-		' '=>'-', '\''=>'', '"'=>'', '\t'=>'', '«'=>'', '»'=>'', '?'=>'', '!'=>'', '*'=>''
-	);
-	$url = preg_replace( '/[\-]+/', '-', preg_replace( '/[^\w\-\*]/', '', strtolower( strtr( $string, $lang2tr ) ) ) );
-	
-	return  $url;
+    return $url;
 }
 
 /**
@@ -66,12 +63,11 @@ function createSmartyRsArray($rs) {
     $smartyRs = array();
 
     while ($row = mysql_fetch_assoc($rs)) {
-    
+
         $smartyRs[] = $row;
-        
     }
-    
-   
+
+
     return $smartyRs;
 }
 
@@ -111,14 +107,11 @@ function loadTemplate($smarty, $templayteName) {
  * @param type $smarty
  * @param type $templayteName
  */
-function layOut($smarty, $templayteName){
-     loadTemplate($smarty, 'header');
+function layOut($smarty, $templayteName) {
+    loadTemplate($smarty, 'header');
     loadTemplate($smarty, $templayteName);
     loadTemplate($smarty, 'footer');
 }
-
-
-
 
 /**
  * 
@@ -131,91 +124,101 @@ function layOut($smarty, $templayteName){
  * стрелочки вперед и 
  * @return string строчка с постраничной навигацией
  */
-function pagination($total, $per_page, $num_links, $start_row, $id){
-   
-    
+function pagination($total, $per_page, $num_links, $start_row, $id) {
+
+
 
 //Получаем общее число страниц
-    $num_pages = ceil($total/$per_page);
+    $num_pages = ceil($total / $per_page);
 
-    if ($num_pages == 1) return '';
+    if ($num_pages == 1)
+        return '';
 
     //Получаем количество элементов на страницы
     $cur_page = $start_row;
 
     //Если количество элементов на страницы больше чем общее число элементов
     // то текущая страница будет равна последней
-    if ($cur_page > $total){
+    if ($cur_page > $total) {
         $cur_page = ($num_pages - 1) * $per_page;
     }
 
     //Получаем номер текущей страницы
-    $cur_page = floor(($cur_page/$per_page) + 1);
+    $cur_page = floor(($cur_page / $per_page) + 1);
 
     //Получаем номер стартовой страницы выводимой в пейджинге
     $start = (($cur_page - $num_links) > 0) ? $cur_page - $num_links : 0;
     //Получаем номер последней страницы выводимой в пейджинге
-    $end   = (($cur_page + $num_links) < $num_pages) ? $cur_page + $num_links : $num_pages;
+    $end = (($cur_page + $num_links) < $num_pages) ? $cur_page + $num_links : $num_pages;
 
     $output = '<span class="ways">';
 
     //Формируем ссылку на предыдущую страницу
-    if  ($cur_page != 1){
+    if ($cur_page != 1) {
         $i = $start_row - $per_page;
-        if ($i <= 0) $i = '' ;
-        $output .= '<i>←</i><a href="/category/'.$id.'/'.$i.'">Предыдущая</a>';
+        if ($i <= 0)
+            $i = '';
+        $output .= '<i>←</i><a href="/category/' . $id . '/' . $i . '">Предыдущая</a>';
     }
-    else{
+    else {
         $output .='<span><i>←</i>Предыдущая</span>';
     }
-    
+
     $output .= '<span class="divider">|</span>';
 
     //Формируем ссылку на следующую страницу
-    if ($cur_page < $num_pages){
-        $output .= '<a href="/category/'.$id.'/'.($cur_page * $per_page).'">Следующая </a><i>→</i>';
-    }
-    else{
+    if ($cur_page < $num_pages) {
+        $output .= '<a href="/category/' . $id . '/' . ($cur_page * $per_page) . '">Следующая </a><i>→</i>';
+    } else {
         $output .='<span>Следующая<i>→</i></span>';
     }
 
     $output .= '<br></span>';
 
     //Формируем ссылку на первую страницу
-    
-     $output .= '<span class="num_links">';
-    if  ($cur_page > ($num_links + 1)){
-        $output .= '<a href="/category/'.$id.'/'.'" title="Первая">Первая</a>';
+
+    $output .= '<span class="num_links">';
+    if ($cur_page > ($num_links + 1)) {
+        $output .= '<a href="/category/' . $id . '/' . '" title="Первая">Первая</a>';
     }
 
     // Формируем список страниц с учетом стартовой и последней страницы   >
-         
-    if ($OnlyArrow == 0) { 
-        for ($loop = $start; $loop <= $end; $loop++){
-        $i = ($loop * $per_page) - $per_page;
 
-     if ($i >= 0)
-        {
-            if ($cur_page == $loop)
-            {
-               //Текущая страница
-               $output .= '<span class="carent">'.$loop.'</span>'; 
+    if ($OnlyArrow == 0) {
+        for ($loop = $start; $loop <= $end; $loop++) {
+            $i = ($loop * $per_page) - $per_page;
+
+            if ($i >= 0) {
+                if ($cur_page == $loop) {
+                    //Текущая страница
+                    $output .= '<span class="carent">' . $loop . '</span>';
+                } else {
+
+                    $n = ($i == 0) ? '' : $i;
+
+                    $output .= '<a href="/category/' . $id . '/' . $n . '">' . $loop . '</a>';
+                }
             }
-            else
-            {
-
-               $n = ($i == 0) ? '' : $i;
-
-               $output .= '<a href="/category/'.$id.'/'.$n.'">'.$loop.'</a>';
-            } 
         }
     }
-    }
     //Формируем ссылку на последнюю страницу
-    if (($cur_page + $num_links) < $num_pages){
+    if (($cur_page + $num_links) < $num_pages) {
         $i = (($num_pages * $per_page) - $per_page);
-        $output .= '<a href="/category/'.$id.'/'.$i.'" title="Последняя ">Последняя</a>';
+        $output .= '<a href="/category/' . $id . '/' . $i . '" title="Последняя ">Последняя</a>';
     }
     $output .= '</span>';
     return $output;
+}
+
+/**
+ * Редирект
+ * 
+ * @param string $url адрес по которому нужно перейти
+ * 
+ */
+function redirect($url) {
+    if (!$url)
+        $url = "/";
+    header("Location: {$url}");
+    exit();
 }

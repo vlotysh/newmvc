@@ -5,7 +5,6 @@ session_start(); //старт сесси
 if(! isset($_SESSION['cart'])) {
     $_SESSION['cart'] = array();    
 } 
-//unset( $_SESSION['cart'] );
 
 
 $_SESSION['query'];

@@ -23,6 +23,8 @@ loadResurs('CategoriesModel');
  * @param type $smarty
  */
 function indexAction($smarty) {
+    
+    
     $catId = isset($_GET['id']) ? $_GET['id'] : 'null';
     if (!$catId)
         exit();
@@ -89,8 +91,7 @@ function indexAction($smarty) {
     $smarty->assign('rsChildCats', $rsChildCats);
     $smarty->assign('rsCategories', $rsCategories);
     $smarty->assign('page', $page);
-    
-
+   
     layOut($smarty, 'category');
     
     
