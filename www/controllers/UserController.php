@@ -55,6 +55,9 @@ function registerAction() {
 
             $_SESSION['user'] = $userData;
             $_SESSION['user']['displayName'] = $userData['name'] ? $userData['name'] : $userData['email'];
+           
+            $json = json_encode($resData); 
+        setcookie("user",$json,0x7FFFFFFF,"/");
         } else {
             $resData['success'] = 0;
             $resData['message'] = 'Ошибка регистрации';
@@ -69,6 +72,8 @@ function logoutAction() {
         unset($_SESSION['user']);
         unset($_SESSION['cart']);
     }
+    
+  setcookie("user","",0x7FFFFFFF,"/");
     //переадресация на главную страничку
     redirect('/');
 }
@@ -99,10 +104,14 @@ function loginAction() {
 
         $resData = $_SESSION['user'];
         $resData['success'] = 1;
+        
+        $json = json_encode($resData); 
+        setcookie("user",$json,0x7FFFFFFF,"/");
+       
     } else {
         $resData['success'] = 0;
         $resData['message'] = 'Неверный логин или пароль';
     }
-
+    
     echo json_encode($resData);
 }

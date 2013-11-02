@@ -122,6 +122,7 @@ function  loginUser ($email, $pwd){
         
         if(isset($rs[0])) {
             $rs['success'] = 1;
+            
         } else {
             $rs['success'] = 0;
         }

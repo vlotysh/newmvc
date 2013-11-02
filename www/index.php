@@ -27,13 +27,23 @@ $controllerName = isset($_GET['controller']) ? ucfirst($_GET['controller']) : 'I
 $actionName = isset($_GET['action']) ? $_GET['action'] : 'index';
 
 
+if (isset($_COOKIE['user'])) {
+    $_SESSION['user'] = json_decode($_COOKIE['user'], true);
+}
+
+
+
+if (isset($_SESSION['user'])) {
+    $smarty->assign('arUser', $_SESSION['user']);
+}
+
+    //d($_COOKIE['user']);
 //Количество товаров в корзине
 $smarty->assign('cartCntItems', count($_SESSION['cart']));
 
 $smarty->assign('controllerName', $controllerName);
 
 $page = isset($_GET['page']) ? $_GET['page'] : NULL;
-
 
 
         

@@ -190,3 +190,12 @@ function login() {
         
     })
 }
+
+function showRegisterBox() {
+   
+         $('#registerBox').show();
+         
+   
+    
+    
+}

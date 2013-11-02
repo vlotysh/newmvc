@@ -35,25 +35,35 @@
         </ul>
         
         
-        <div id="userBox" class="hideme">
-            <a href="#" id="userLink"></a><br />
+        {if isset($arUser)}
+            
+             <div id="userBox">
+            <a href="/user/" id="userLink">{$arUser['displayName']}</a><br />
             <a href="/user/logout/" onclick="logout();">Выход</a>
             
-        </div>
-        
+            </div>
+          {else}  
+          
+          <div id="userBox" class="hideme">
+            <a href="/user/" id="userLink">{$arUser['displayName']}</a><br />
+            <a href="/user/logout/" onclick="logout();">Выход</a>
+            
+            </div>
+      
+        {if !isset($arUser)}
         <div id="loginBox">
             <div class="menuCaprion">Авторизация</div>
             <input type="text" id="loginEmail" name="loginEmail" value="" /><br />
             <input type="text" id="loginPwd" name="loginPwd" value=""/><br />
             <input type="button" onclick="login();" value="Войти" /><br />
         </div>
-        
+        {/if}
         
         <div id="registerBox" style="margin-top: 10px;">
-        <div class="menuCaprion showHidden" onclick="showRegisterBox();">Регистрация</div>
+        <div class="menuCaprion showHidden" style="cursor: pointer; margin-bottom: 10px;">Регистрация</div>
         
         
-          <div id="registerBoxHidden">
+        <div class="hidenn">
               email:<br />
               <input  required type="email" id="email" name="email" value=""/><br />
               пароль: <br />
@@ -64,7 +74,7 @@
           </div>
                                 
         </div>
-        
+        {/if}
          <div class="menuCaption">Корзина</div>
         <a href="/cart/" title="Перейти в корзину">В корзину</a>
         <p>В корзине</p>

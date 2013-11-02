@@ -7,9 +7,19 @@
         
          {literal}
             <script type="text/javascript">
-    for(var i = 0; i == 1; i++)       
-    location = location.href;
-                
+          $(function(){ 
+            $('.hidenn').hide();
+
+
+            $('.menuCaprion').click(function(){
+
+             
+            $('.hidenn').toggle()
+
+
+            })
+             });
+          
             </script>
         {/literal}
     </head>
