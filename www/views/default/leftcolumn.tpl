@@ -38,14 +38,14 @@
         {if isset($arUser)}
             
              <div id="userBox">
-            <a href="/user/" id="userLink">{$arUser['displayName']}</a><br />
+                 Привет, <a href="/user/" id="userLink">{$arUser['displayName']}</a> !<br />
             <a href="/user/logout/" onclick="logout();">Выход</a>
             
             </div>
           {else}  
           
           <div id="userBox" class="hideme">
-            <a href="/user/" id="userLink">{$arUser['displayName']}</a><br />
+           <p> Привет, <a href="/user/" id="userLink">{$arUser['displayName']}</a> !</p>
             <a href="/user/logout/" onclick="logout();">Выход</a>
             
             </div>
@@ -55,6 +55,7 @@
             <div class="menuCaprion">Авторизация</div>
             <input type="text" id="loginEmail" name="loginEmail" value="" /><br />
             <input type="text" id="loginPwd" name="loginPwd" value=""/><br />
+            Запомнить меня: <input type="checkbox" id="remember" name="remember" value="true"/><br />
             <input type="button" onclick="login();" value="Войти" /><br />
         </div>
         {/if}

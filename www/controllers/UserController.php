@@ -7,6 +7,32 @@
 loadResurs('CategoriesModel');
 loadResurs('UserModel');
 
+
+/**
+ * Cтраничка пользователя которая доступна после регистрации
+ */
+function indexAction($smarty) {
+    if (!$_SESSION['user']) {
+        redirect('/');
+    }
+    
+    
+    $rsCategories = getAllMainCatsWithChildren();
+ 
+
+    $smarty->assign('pageTitle', 'Страничка пользователя');
+    $smarty->assign('rsCategories', $rsCategories);
+    $smarty->assign('rsProducts', $rsProducts);
+    
+    layOut($smarty, 'user');
+    d($_SESSION['user'], 1);
+}
+
+
+
+
+
+
 /**
  * 
  * регистрация пользователя
@@ -93,7 +119,9 @@ function loginAction() {
 
     $pwd = isset($_REQUEST['pwd']) ? $_REQUEST['pwd'] : null;
     $pwd = trim($pwd);
-
+    
+    $remember = isset($_REQUEST['remember']) ? $_REQUEST['remember'] : null;
+    
     $userData = loginUser($email, $pwd);
 
     if ($userData['success']) {
@@ -101,12 +129,16 @@ function loginAction() {
 
         $_SESSION['user'] = $userData;
         $_SESSION['user']['displayName'] = $userData['name'] ? $userData['name'] : $userData['email'];
-
+      
         $resData = $_SESSION['user'];
         $resData['success'] = 1;
         
         $json = json_encode($resData); 
+       // d($remember);
+        if ($remember == 'true') {
         setcookie("user",$json,0x7FFFFFFF,"/");
+        
+        }
        
     } else {
         $resData['success'] = 0;

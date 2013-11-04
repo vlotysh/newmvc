@@ -165,8 +165,10 @@ function registerNewUser() {
 function login() {
     var email = $('#loginEmail').val();
     var pwd = $('#loginPwd').val();
+    if ($('#remember').is(":checked")) var remember = $('#remember').val();
+    else var remember = false;
     
-    var postData = "email=" + email + "&pwd="+pwd;
+    var postData = "email=" + email + "&pwd="+pwd+ "&remember="+remember;
     
     $.ajax ({
         type: 'POST',
@@ -178,10 +180,12 @@ function login() {
             if(data['success']) {
                  $('#registerBox').hide();
                  $('#loginBox').hide();
-                 
+            
                  $('#userLink').attr('href','/user/');
+                  $('#grittings').html('Привет,');
                  $('#userLink').html(data['displayName']);
                  $('#userBox').show();
+                
             } else {
                 alert(data['message']);
             }

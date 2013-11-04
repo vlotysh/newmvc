@@ -28,6 +28,21 @@ function getLastProducts($limit = NULL) {
  * @param type $order передается метод упорядочности
  * @return type
  */
+
+
+
+function getPrductsMainCat($itemId, $carent = '', $perPage = '', $order) {
+    $itemId = intval($itemId);
+
+    $sql = "SELECT * FROM products WHERE parent_id = '$itemId' ORDER BY $order LIMIT $carent , $perPage";
+d($sql);
+    $rs = mysql_query($sql);
+
+    return createSmartyRsArray($rs);
+}
+
+
+
 function getPrductsByCat($itemId, $carent = '', $perPage = '', $order) {
     $itemId = intval($itemId);
 
