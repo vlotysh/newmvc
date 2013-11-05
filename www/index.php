@@ -9,9 +9,7 @@ if(! isset($_SESSION['cart'])) {
 
 $_SESSION['query'];
 
-if($_POST['q']) {
-    $_SESSION['query'] = $_POST['q'];
-}
+
 
 //Подключение файлов с функциями и конфигурациям
 include_once 'config/config.php'; //Инициализация настроек + инициализация шаблона
@@ -19,6 +17,19 @@ include_once 'config/db.php';//Инициализация настроек ба�
 include_once 'library/mainFunctions.php'; //Основные функции
 include_once 'helpers/additionFunctions.php'; //Хелперы
 
+//
+//
+//
+//Редирект для запрета повторойной отправки через F5 решение универсальное!.
+//
+//
+//
+
+if($_POST['q']) {
+    $_SESSION['query'] = $_POST['q'];
+ //  unset($_POST['q']); 
+    redirect($_SERVER['REQUEST_URI']);
+}
 //Определене с каким контролером будем работать!
 $controllerName = isset($_GET['controller']) ? ucfirst($_GET['controller']) : 'Index';
 

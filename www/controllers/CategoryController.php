@@ -78,7 +78,14 @@ function indexAction($smarty) {
     $rsOneCategory = getCatById($catId); //выброка категории 
 
     $rsCategories = getAllMainCatsWithChildren();
-    
+   
+    /*
+    $serials = serialize($rsCategories);
+    d($serials, 0);
+    $Deserials = unserialize($serials);
+    d($Deserials, 0);
+     * 
+     */
     $smarty->assign('pageTitle', 'Товары категории' . $rsCategory['name']);
     $smarty->assign('count', $count);
 
