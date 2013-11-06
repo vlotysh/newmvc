@@ -3,6 +3,57 @@
     padding: 0;
     font-family: Arial;
 }
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0; /* обнуляем внешние отступы */
+	padding: 0; /* обнуляем внутренние отступы */
+	border: 0; /* убираем бордюры */
+	outline: 0; /* убираем контуры */
+	font-size: 100%; /* задаем базовый размер шрифта, значение по умолчанию = 16px */
+	vertical-align: baseline; /* устанавливаем базовое вертикальное выравнивание */
+	background: transparent; /* устанавливаем фон прозрачным */
+}
+body {
+	line-height: 1; /* устанавливаем базовую высоту */
+}
+ol, ul {
+	list-style: none; /* убираем маркеры для нумерованных и обычных списков */
+}
+blockquote, q {
+	quotes: none; /* убираем кавычки для цитат */
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: ''; /* убираем */
+	content: none; /* и скрываем генерируемое содержимое */
+}
+:focus {
+	outline: 0; /* убираем контуры вокруг ссылок при фокусе */
+}
+ins {
+	text-decoration: none; /* убираем подчеркивание для вставленного текста */
+}
+del {
+	text-decoration: line-through; /* убираем перечеркивание для удаленного текста */
+}
+table {
+	border-collapse: collapse; /* убираем рамки двойной толщины */
+	border-spacing: 0; /* убираем расстояние между ячейками */
+}
+
+
+/* МОИ СТИИЛИ*/
+h1, h2, h3 {
+    margin: 10px 0;
+}
 .total_price {
    
     text-align: right;
@@ -27,11 +78,7 @@ a {
 a:hover {
     text-decoration: underline;
 }
-body {
-    max-width: 1200px;
-    min-width: 900px;
-    margin: 0 auto;
-}
+
 
 .leftColumn li {
     list-style-type: none;
@@ -59,7 +106,7 @@ li ul {
     position: absolute;
     text-wrap: none;
     width: 250px;
-    left: 203px;
+    left: 209px;
     top:-1px;
     z-index: 999;
    
@@ -137,12 +184,13 @@ div.pegenation {
 
 
 .leftColumn {
-    width: 205px;
+    width: 22%;
     margin-right: 1%;
     float: left;
     border: 1px solid black;
     padding: 10px;
-    box-sizing: border-box;
+  
+    
     position: relative;
 }
 
@@ -151,7 +199,7 @@ div.pegenation {
     width: 25%; text-align: center;
 }
 .centerColumn {
-    width: 70%;
+    width: 680px;
     float: right;
     border: 1px solid black;
     padding: 10px;
@@ -194,4 +242,15 @@ div.pegenation {
     float: left;
     display: block;
     margin-bottom: 10px;
+}
+
+.user_title input,textarea {
+    width: 200px;
+    
+    
+    
+}
+
+.user_title textarea {
+    resize: none;
 }

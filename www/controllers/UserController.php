@@ -22,7 +22,7 @@ function indexAction($smarty) {
 
     $smarty->assign('pageTitle', 'Страничка пользователя');
     $smarty->assign('rsCategories', $rsCategories);
-    $smarty->assign('rsProducts', $rsProducts);
+   
     
     layOut($smarty, 'user');
     d($_SESSION['user'], 1);

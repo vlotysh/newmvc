@@ -86,7 +86,7 @@ function indexAction($smarty) {
     d($Deserials, 0);
      * 
      */
-    $smarty->assign('pageTitle', 'Товары категории' . $rsCategory['name']);
+    $smarty->assign('pageTitle', 'Товары категории ' . $rsCategory['name']);
     $smarty->assign('count', $count);
 
      $smarty->assign('catId', $catId);

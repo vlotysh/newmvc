@@ -2,12 +2,7 @@
 
 {if $rsOneCategory['parent_id'] != 0 && count($rsProducts) != 0}
  
-          <!--
- 
-    <INPUT type="radio" NAME="q" value="price ASC" {if $query == 'price ASC'}  checked=""{/if}><span>По возрастанию цены</span>
-     <INPUT type="radio" name="q" value="price DESC"  {if $query == 'price DESC'}checked="" {/if}> <span>По убыванию цены</span>
-        </select></p>-->
-          <form method="POST">
+            <form method="POST">
   <select onchange='this.form.submit();' name="q"  >
       <option value="price DESC" {if $query == 'price DESC'}selected=""{/if}>По убыванию цены</option>
     <option value="price ASC"  {if $query == 'price ASC'}selected=""{/if}>По возрастанию цены</option>

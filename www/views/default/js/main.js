@@ -173,7 +173,7 @@ function login() {
     $.ajax ({
         type: 'POST',
         async: false,
-        url: "user/login/",
+        url: "/user/login/",
         data: postData,
         dataType: 'json',
         success: function(data) {
